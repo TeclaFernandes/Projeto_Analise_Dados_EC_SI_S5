@@ -35,5 +35,7 @@ Projeto de Estatística Computacional, esse projeto tem com o objetivo de realia
 
 - dt_competencia: Data de competência do dado.
 - dt_atualizacao: Data da última atualização no sistema.
+---
+### Descrições
 - ds_unidade_medida: Unidade (ex: "Número" ou "Percentual").
-- ds_granularidade: Descrição do nível (ex: "Município"
+- ds_granularidade: Descrição do nível (ex: "Município").
