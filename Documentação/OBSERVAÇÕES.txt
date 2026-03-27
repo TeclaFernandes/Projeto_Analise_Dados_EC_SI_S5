@@ -1,0 +1,18 @@
+OBSERVAÇÕES: 
+
+Todo notebook que for feito sobre um dataset deve referencia-lo NO COMEÇO, e em caso de exportação necessária deixar claro de qual arquivo ele é produto. 
+
+reports - documentação
+
+src - limpar a pasta e removela
+
+readme (1.0) oficial no final da primeira etapa
+
+requeriments.txt - dependencias nescessarias 7
+
+subdivisão das tarefa: 
+
+notebook 1 - Compreensão dos dados (previsão de entrega até 27)
+notebook 2 - limpeza e preparação (previsão de entrega até Domingo 29.03)
+notebook 3 - Análise exploratória (Entrega até dia 02.04)
+notebook 4 - Análise exploratória (Entrega até dia 02.04)
