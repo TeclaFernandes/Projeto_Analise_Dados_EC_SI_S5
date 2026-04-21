@@ -1,0 +1,12 @@
+OBSERVAÇÕES: 
+
+Todo notebook que for feito sobre um dataset deve referencia-lo NO COMEÇO, e em caso de exportação necessária deixar claro de qual arquivo ele é produto. 
+
+requeriments.txt - Dependências necessárias.
+
+SUBDIVISÃO DAS TAREFAS: 
+
+notebook 1 - Compreensão dos dados (Lucas)
+notebook 2 - limpeza e preparação (Fernando)
+notebook 3 - Análise exploratória (Tecla e Gustavo)
+notebook 4 - Análise exploratória (Tecla e Gustavo)
