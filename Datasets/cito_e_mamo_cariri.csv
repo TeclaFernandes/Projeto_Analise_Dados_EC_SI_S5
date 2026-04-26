@@ -1,4 +1,4 @@
-sg_uf,no_municipio,vl_indicador_calculado_mun,co_anomes,dt_atualizacao,tipo_exame
+estado,municipio,valor_indicador,ano_mes,data_atualizacao,tipo_exame
 CE,Brejo Santo,748.0,201612,2026-03-17 01:25:03,Citopatologico
 CE,Crato,16742.0,201612,2026-03-17 01:25:03,Citopatologico
 CE,Juazeiro do Norte,4176.0,201612,2026-03-17 01:25:03,Citopatologico
