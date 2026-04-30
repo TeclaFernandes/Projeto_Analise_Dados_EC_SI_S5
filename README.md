@@ -1,5 +1,5 @@
-# 📊 Análise de Dados em Saúde Pública  
-### Exames Citopatológicos e Infraestrutura Oncológica no Brasil
+# 📊 Análise de Dados em Saúde Pública - Região do Cariri
+### Exames Citopatológicos e Mamografia no Ceará
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-yellow)
@@ -10,12 +10,12 @@
 
 ## 🎯 Sobre o Projeto
 
-Este projeto realiza uma análise exploratória de dados (EDA) aplicada à saúde pública brasileira, com foco em:
+Este projeto realiza uma análise exploratória de dados (EDA) aplicada à saúde pública na região do Cariri - Ceará, com foco em:
 
-- 🧪 Exames citopatológicos (Papanicolau) em mulheres (25–64 anos)  
-- 🏥 Hospitais habilitados para tratamento de câncer  
+- 🧪 Exames citopatológicos (Papanicolau) em mulheres (25–64 anos)
+- 🩺 Exames de mamografia em mulheres (50–69 anos)
 
-O objetivo é identificar **padrões, desigualdades regionais e possíveis gargalos no sistema de saúde**.
+O objetivo é identificar **padrões, desigualdades regionais, tendências temporais e estabelecer benchmarks** para avaliação da efetividade dos programas de rastreamento de câncer.
 
 ---
 
@@ -30,7 +30,10 @@ ANALISEDADOSCANCERDEMAMA/
 │
 ├── Datasets/
 │   ├── ccmec25a64_main.csv
-│   ├── ccmhhcac.csv
+│   ├── ccmec50a69.csv
+│   ├── citopatologia_cariri.csv
+│   ├── mamografia_cariri.csv
+│   ├── cito_e_mamo_cariri.csv
 │   ├── dados_tratados.csv
 │   └── df_limpo_sem_outliers.csv
 │
@@ -44,77 +47,89 @@ ANALISEDADOSCANCERDEMAMA/
 │   │   ├── Notebook1.ipynb
 │   │   ├── Notebook2.ipynb
 │   │   ├── Notebook3.ipynb
-│   │   ├── Notebook4.ipynb
+│   │   ├── Notebook5.ipynb
+│   │   ├── Notebook6.ipynb
 │   │   └── analise_cruzada_exames_hospitais.png
 │   └── N2/
+│       └── rascunhos.ipynb
 │
 ├── README.md
 └── requirements.txt
 ```
 
-
 ---
 
 ## 📊 Principais Análises
 
-### 📌 1. Estatísticas Descritivas
-- Média, mediana e moda  
-- Percentis (P10 → P95)  
-- Variância e desvio padrão  
-- Coeficiente de variação  
+### 📌 1. Limpeza e Filtragem de Dados (Notebook5.ipynb)
+- Filtragem para região do Cariri - Ceará (28 municípios)
+- Remoção de valores inconsistentes (zeros)
+- Unificação de datasets de citopatologia e mamografia
+- Criação de datasets limpos: `citopatologia_cariri.csv`, `mamografia_cariri.csv`, `cito_e_mamo_cariri.csv`
 
-💡 **Insight:**  
-Municípios apresentam **altíssima variabilidade**, enquanto o Brasil mostra estabilidade.
+💡 **Insight:**
+Preparação dos dados para análise focada na região do Cariri, tratando inconsistências como subnotificação e dados tardios.
 
 ---
 
-### 📌 2. Distribuição dos Dados
+### 📌 2. Estatísticas Descritivas (Notebook6.ipynb)
+- Medidas de posição: média, mediana, moda, percentis
+- Medidas separatrizes: quartis, decis
+- Análise de distribuição por município, UF e Brasil
 
-- 📉 Histogramas  
-- 📦 Boxplots  
-- 📈 Curvas CDF  
-
-💡 **Insight:**  
-- Municípios → forte assimetria (cauda longa)  
-- UF → comportamento intermediário  
-- Brasil → distribuição equilibrada  
+💡 **Insight:**
+Municípios apresentam alta variabilidade, com assimetria à direita indicando concentração de valores baixos.
 
 ---
 
 ### 📌 3. Detecção de Outliers
 
-- Método: **IQR (Intervalo Interquartil)**  
+- **Notebook5:** Remoção de valores inconsistentes (zeros) e filtragem para região do Cariri - Ceará (28 municípios), resultando em datasets limpos sem registros nulos ou inválidos.
+- **Notebook6:** Método estatístico **IQR (Intervalo Interquartil)** aplicado ao dataset filtrado do Cariri.
 
 | Etapa | Registros |
 |------|---------:|
-| Antes | 5986 |
-| Depois | 4257 |
-| Removidos | 1729 |
+| Antes (Notebook6) | 5986 |
+| Depois (Notebook6) | 4257 |
+| Removidos (Notebook6) | 1729 |
 
 💡 **Resultado:**  
-Redução significativa de distorções estatísticas.
+Redução de distorções no dataset do Cariri, melhorando a qualidade das análises estatísticas.
 
 ---
 
 ### 📌 4. Dispersão dos Dados
 
+Análise focada na região do Cariri (Ceará), com níveis específicos:
+
 | Nível | CV (%) | Interpretação |
 |------|------:|-------------|
-| Municípios | 953% | Extremamente heterogêneo |
-| UF | 101% | Moderado |
-| Brasil | 15% | Estável |
+| Municípios (Cariri) | 953% | Extremamente heterogêneo |
+| UF (Ceará) | 101% | Moderado |
+| Brasil (agregado) | 15% | Estável |
+
+💡 **Nota:**  
+Os cálculos consideram apenas os dados filtrados para o Cariri, onde "UF" refere-se ao Ceará e "municípios" aos 28 do Cariri.
+
+### 📌 5. Análise Temporal
+
+- Filtragem por períodos específicos
+- Comparação de tendências ao longo do tempo
+
+💡 **Insight:**
+Identificação de variações temporais nos exames realizados.
 
 ---
 
-### 📌 5. Análise Cruzada
+### 📌 6. Benchmarks de Saúde
 
-Comparação entre:
+Comparação com padrões internacionais (OMS/INCA):
 
-- Número de exames realizados  
-- Quantidade de hospitais disponíveis  
+- Cobertura recomendada para exames de rastreamento
+- Indicadores de efetividade dos programas
 
-💡 **Objetivo:**  
-Identificar possíveis desigualdades entre **demanda e infraestrutura de saúde**.
+💡 **Objetivo:**
+Avaliar se os dados atendem aos benchmarks estabelecidos para prevenção de câncer.
 
 ---
 
@@ -125,12 +140,12 @@ O projeto inclui:
 - Histogramas
 - Boxplots
 - Gráficos de dispersão
-- Gráficos por UF
+- Gráficos de barras
 - Análise comparativa entre regiões
 
 📍 Exemplo:
 
-![Análise Cruzada](Notebooks/N1/analise_cruzada_exames_hospitais.png)
+![Análise Cruzada]("../../Documentação/Histograma.png)
 
 ---
 
@@ -145,10 +160,11 @@ O projeto inclui:
 
 ## 🧠 Conclusões
 
-✔ O dataset é **hierárquico e heterogêneo**  
-✔ Municípios apresentam alta variabilidade  
-✔ Dados agregados (UF/Brasil) são mais estáveis  
-✔ Remoção de outliers foi essencial para qualidade da análise  
+✔ Dataset hierárquico e heterogêneo
+✔ Alta variabilidade em municípios
+✔ Dados agregados mais estáveis
+✔ Remoção de outliers essencial
+✔ Benchmarks fornecem contexto para avaliação
 
 ---
 
@@ -180,15 +196,15 @@ pip install -r requirements.txt
 
 ## 👨‍💻 Autor
 
-Projeto desenvolvido para disciplina de Estatística S4
+Projeto desenvolvido para disciplina de Estatística Computacional
 com foco em análise de dados aplicada à saúde pública.
 
 ## ⭐ Destaque
 
 Este projeto demonstra:
 
-✔ Análise estatística completa <br>
 ✔ Limpeza e tratamento de dados <br>
+✔ Análise estatística completa <br>
 ✔ Detecção de outliers <br>
 ✔ Visualização de dados <br>
-✔ Interpretação orientada a negócio
+✔ Estabelecimento de benchmarks
