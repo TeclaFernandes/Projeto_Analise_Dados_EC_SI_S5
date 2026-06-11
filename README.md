@@ -1,210 +1,152 @@
-# 📊 Análise de Dados em Saúde Pública - Região do Cariri
-### Exames Citopatológicos e Mamografia no Ceará
+# � Análise de Dados em Saúde Pública - Mamografia e Citopatologia
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+Projeto desenvolvido para a disciplina de Estatística Computacional, com foco em análise exploratória, visualização e interpretação de dados relacionados a exames de mamografia e citopatologia no Ceará, especialmente nas regiões do Cariri e de Crajubar.
+
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-yellow)
-![Status](https://img.shields.io/badge/Status-Concluído-green)
-![License](https://img.shields.io/badge/License-Academic-lightgrey)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-ff4b4b)
+![Status](https://img.shields.io/badge/Status-em%20andamento-yellowgreen)
 
 ---
 
-## 🎯 Sobre o Projeto
+## 🎯 Objetivo do projeto
 
-Este projeto realiza uma análise exploratória de dados (EDA) aplicada à saúde pública na região do Cariri - Ceará, com foco em:
+Este repositório reúne uma coleção de análises, notebooks e recursos visuais para:
 
-- 🧪 Exames citopatológicos (Papanicolau) em mulheres (25–64 anos)
-- 🩺 Exames de mamografia em mulheres (50–69 anos)
+- explorar indicadores de saúde pública relacionados a exames de mamografia e citopatologia;
+- comparar padrões por município, faixa etária e etnia;
+- aplicar técnicas de limpeza, tratamento e visualização de dados;
+- gerar relatórios, gráficos e interpretações para apoiar a apresentação dos resultados.
 
-O objetivo é identificar **padrões, desigualdades regionais, tendências temporais e estabelecer benchmarks** para avaliação da efetividade dos programas de rastreamento de câncer.
+A proposta é organizar o trabalho em etapas de análise, com foco em compreender a distribuição dos exames, possíveis desigualdades regionais e a consistência dos indicadores disponíveis nas bases de dados.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Estrutura do projeto
 
-```
-ANALISEDADOSCANCERDEMAMA/
-│
+```text
+AnaliseDadosCancerDeMama/
 ├── app/
 │   ├── Artigo1.0.py
 │   └── dashboard.py
-│
 ├── Datasets/
-│   ├── ccmec25a64_main.csv
-│   ├── ccmec50a69.csv
-│   ├── citopatologia_cariri.csv
-│   ├── mamografia_cariri.csv
-│   ├── cito_e_mamo_cariri.csv
-│   ├── dados_tratados.csv
-│   └── df_limpo_sem_outliers.csv
-│
+│   ├── N1/
+│   └── N2/
 ├── Documentação/
-│   ├── Artigo_Previne_Brasil.pdf
-│   ├── OBSERVAÇÕES.txt
-│   └── RoteiroTrabalho.pdf
-│
+│   └── OBSERVAÇÕES.txt
 ├── Notebooks/
 │   ├── N1/
-│   │   ├── Notebook1.ipynb
-│   │   ├── Notebook2.ipynb
-│   │   ├── Notebook3.ipynb
-│   │   ├── Notebook5.ipynb
-│   │   ├── Notebook6.ipynb
-│   │   └── analise_cruzada_exames_hospitais.png
 │   └── N2/
-│       └── rascunhos.ipynb
-│
-├── README.md
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
----
+### Descrição dos diretórios
 
-## 📊 Principais Análises
-
-### 📌 1. Limpeza e Filtragem de Dados (Notebook5.ipynb)
-- Filtragem para região do Cariri - Ceará (28 municípios)
-- Remoção de valores inconsistentes (zeros)
-- Unificação de datasets de citopatologia e mamografia
-- Criação de datasets limpos: `citopatologia_cariri.csv`, `mamografia_cariri.csv`, `cito_e_mamo_cariri.csv`
-
-💡 **Insight:**
-Preparação dos dados para análise focada na região do Cariri, tratando inconsistências como subnotificação e dados tardios.
+- app/: scripts auxiliares e protótipos de dashboard.
+- Datasets/: arquivos CSV utilizados nas análises, organizados por etapa N1 e N2.
+- Documentação/: materiais complementares e observações do projeto.
+- Notebooks/: notebooks com a análise exploratória, limpeza, visualização e interpretação dos dados.
 
 ---
 
-### 📌 2. Estatísticas Descritivas (Notebook6.ipynb)
-- Medidas de posição: média, mediana, moda, percentis
-- Medidas separatrizes: quartis, decis
-- Análise de distribuição por município, UF e Brasil
+## 📊 O que está sendo analisado
 
-💡 **Insight:**
-Municípios apresentam alta variabilidade, com assimetria à direita indicando concentração de valores baixos.
+O trabalho utiliza bases sobre:
 
----
+- exames de mamografia;
+- exames citopatológicos;
+- recortes por município;
+- distribuição por faixa etária;
+- distribuição por grupo étnico;
+- comparação entre o total geral e os recortes específicos.
 
-### 📌 3. Detecção de Outliers
-
-- **Notebook5:** Remoção de valores inconsistentes (zeros) e filtragem para região do Cariri - Ceará (28 municípios), resultando em datasets limpos sem registros nulos ou inválidos.
-- **Notebook6:** Método estatístico **IQR (Intervalo Interquartil)** aplicado ao dataset filtrado do Cariri.
-
-| Etapa | Registros |
-|------|---------:|
-| Antes (Notebook6) | 5986 |
-| Depois (Notebook6) | 4257 |
-| Removidos (Notebook6) | 1729 |
-
-💡 **Resultado:**  
-Redução de distorções no dataset do Cariri, melhorando a qualidade das análises estatísticas.
+As análises estão organizadas na pasta Notebooks, com foco em estatística descritiva, visualização de dados e interpretação dos resultados.
 
 ---
 
-### 📌 4. Dispersão dos Dados
+## 🧪 Ferramentas e tecnologias
 
-Análise focada na região do Cariri (Ceará), com níveis específicos:
-
-| Nível | CV (%) | Interpretação |
-|------|------:|-------------|
-| Municípios (Cariri) | 953% | Extremamente heterogêneo |
-| UF (Ceará) | 101% | Moderado |
-| Brasil (agregado) | 15% | Estável |
-
-💡 **Nota:**  
-Os cálculos consideram apenas os dados filtrados para o Cariri, onde "UF" refere-se ao Ceará e "municípios" aos 28 do Cariri.
-
-### 📌 5. Análise Temporal
-
-- Filtragem por períodos específicos
-- Comparação de tendências ao longo do tempo
-
-💡 **Insight:**
-Identificação de variações temporais nos exames realizados.
-
----
-
-### 📌 6. Benchmarks de Saúde
-
-Comparação com padrões internacionais (OMS/INCA):
-
-- Cobertura recomendada para exames de rastreamento
-- Indicadores de efetividade dos programas
-
-💡 **Objetivo:**
-Avaliar se os dados atendem aos benchmarks estabelecidos para prevenção de câncer.
-
----
-
-## 📉 Visualizações
-
-O projeto inclui:
-
-- Histogramas
-- Boxplots
-- Gráficos de dispersão
-- Gráficos de barras
-- Análise comparativa entre regiões
-
-📍 Exemplo:
-
-![Análise Cruzada]("../../Documentação/Histograma.png)
-
----
-
-## ⚠️ Limitações
-
-- Dados secundários (SUS)
-- Possível subnotificação
-- Falta de dados clínicos e socioeconômicos
-- Cobertura desigual entre regiões
-
----
-
-## 🧠 Conclusões
-
-✔ Dataset hierárquico e heterogêneo
-✔ Alta variabilidade em municípios
-✔ Dados agregados mais estáveis
-✔ Remoção de outliers essencial
-✔ Benchmarks fornecem contexto para avaliação
-
----
-
-## 🚀 Próximos Passos
-
-- 📊 Dashboard interativo (Streamlit)
-- 🗺️ Mapas geográficos
-- 🤖 Modelos preditivos
-- 📈 Análise temporal avançada
-
----
-
-## 🛠️ Tecnologias
+As principais ferramentas utilizadas no projeto são:
 
 - Python
 - Pandas
 - NumPy
 - Matplotlib
 - Seaborn
-- SciPy
+- Plotly
+- Streamlit
+
+O arquivo requirements.txt reúne as dependências básicas para reproduzir as análises.
 
 ---
 
-## ▶️ Como Executar
+## ▶️ Como executar
 
-```bash
-pip install -r requirements.txt
-```
+1. Crie um ambiente virtual:
 
-## 👨‍💻 Autor
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate   # Linux/macOS
+   .\.venv\Scripts\activate    # Windows
+   ```
 
-Projeto desenvolvido para disciplina de Estatística Computacional
-com foco em análise de dados aplicada à saúde pública.
+2. Instale as dependências:
 
-## ⭐ Destaque
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Este projeto demonstra:
+3. Abra os notebooks em Jupyter ou VS Code para executar as análises.
 
-✔ Limpeza e tratamento de dados <br>
-✔ Análise estatística completa <br>
-✔ Detecção de outliers <br>
-✔ Visualização de dados <br>
-✔ Estabelecimento de benchmarks
+4. Para visualizar o dashboard, execute:
+
+   ```bash
+   streamlit run app/dashboard.py
+   ```
+
+---
+
+## 📌 Notebooks principais
+
+A pasta Notebooks contém a sequência de análises do projeto, incluindo:
+
+- contexto e introdução;
+- análise inicial dos dados;
+- limpeza e filtragem;
+- estatística descritiva;
+- comparação por etnia e faixa etária;
+- visualizações e relatórios.
+
+Esses notebooks formam a base da análise e também servem como material de apresentação e revisão do trabalho.
+
+---
+
+## 📈 Resultados esperados
+
+Com este projeto, espera-se:
+
+- organizar e padronizar os dados de saúde pública;
+- identificar padrões e diferenças entre grupos e regiões;
+- gerar visualizações que facilitem a leitura dos resultados;
+- construir uma base consistente para relatórios e apresentações acadêmicas.
+
+---
+
+## ⚠️ Observações importantes
+
+- Os dados utilizados são baseados em fontes públicas e já tratadas para fins de análise.
+- Algumas etapas podem depender da estrutura local dos arquivos CSV.
+- O projeto está em evolução e pode receber ajustes conforme a análise avança.
+
+---
+
+## 👩‍💻 Autor
+
+Projeto desenvolvido como parte da disciplina de Estatística Computacional, com foco em análise exploratória aplicada à saúde pública.
+
+---
+
+## ✅ Resumo
+
+Este repositório reúne uma análise de dados aplicada à saúde pública, com atenção especial à organização, visualização e interpretação dos resultados. A estrutura do projeto foi atualizada para melhor refletir o que está sendo desenvolvido e como navegar pelos materiais disponíveis.
